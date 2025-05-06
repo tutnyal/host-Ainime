@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   langflow:
-    build: .
+    image: langflow/langflow:latest
     ports:
       - "7860:7860"
     volumes:
