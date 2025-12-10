@@ -2,7 +2,15 @@ version: "3.8"
 
 services:
   langflow:
-    image: langflowai/langflow:latest
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+        # GITHUB_TOKEN is required for cloning the private repository
+        # Create a token at: https://github.com/settings/tokens
+        # Required scope: repo (for private repos)
+        # Usage: GITHUB_TOKEN=your_token docker-compose build
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
     ports:
       - "7860:7860"
     environment:
